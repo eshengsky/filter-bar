@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport">
+    <meta id="LOCATION" name="location" content="province=;city=;coord=,">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="applicable-device" content="mobile">
+    <meta name="fragment" content="!" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="applicable-device" content="mobile">
+    <title id="_title">Filter_Bar</title>
+    <meta id="_keywords" name="Keywords" content="filter bar">
+    <meta id="_description" name="Description" content="filter bar">
+</head>
+
+<body>
+    <script src="./dist/build.js"></script> 
+    <script>
+        // 单选数据
+        var data1 = [{
+            itemName: '综合排序',
+            itemCode: '',
+            default: true
+        }, {
+            itemName: '新品推荐',
+            itemCode: '37',
+            default: false
+        }, {
+            itemName: '价格从低到高价格从低到高价格从低到高价格从低到高价格从低到高价格从低到高价格从低到高',
+            itemCode: '3',
+            default: false
+        }, {
+            itemName: '价格从高到低',
+            itemCode: '2',
+            default: false
+        }, {
+            itemName: '好评度从高到低',
+            itemCode: '27',
+            default: false
+        }];
+
+        // 多选数据
+        var data2 = [{ "default": true, "itemCode": "", "itemName": "不限" }, { "default": false, "itemCode": "playMethod=401", "itemName": "香港+迪士尼" }, { "default": false, "itemCode": "playMethod=865", "itemName": "厦门+鼓浪屿" }, { "default": false, "itemCode": "playMethod=3533", "itemName": "珠海长隆" }, { "default": false, "itemCode": "playMethod=405", "itemName": "香港+海洋公园+迪士尼香港+海洋公园+迪士尼香港+海洋公园+迪士尼香港+海洋公园+迪士尼香港+海洋公园+迪士尼香港+海洋公园+迪士尼香港+海洋公园+迪士尼香港+海洋公园+迪士尼" }, { "default": false, "itemCode": "playMethod=3532", "itemName": "广州长隆" }, { "default": false, "itemCode": "playMethod=402", "itemName": "香港+迪士尼+澳门" }, { "default": false, "itemCode": "playMethod=232", "itemName": "澳门一地" }, { "default": false, "itemCode": "playMethod=887", "itemName": "拉萨+纳木错" }, { "default": false, "itemCode": "playMethod=848", "itemName": "青岛一地" }, { "default": false, "itemCode": "playMethod=1104", "itemName": "三亚湾+亚龙湾" }, { "default": false, "itemCode": "playMethod=1144", "itemName": "华东三市+水乡" }, { "default": false, "itemCode": "playMethod=1161", "itemName": "拉萨+纳木错+羊湖+日喀则" }, { "default": false, "itemCode": "playMethod=3559", "itemName": "华东三市+迪士尼" }, { "default": false, "itemCode": "playMethod=408", "itemName": "香港一地" }];
+
+        // 互斥数据
+        var data4 = [{"groupCode":"地标","groupName":"地标","multiFlag":false,"items":[{"itemCode":"","itemName":"不限","default":true},{"itemCode":"972","itemName":"K11购物艺术中心","default":false},{"itemCode":"935","itemName":"七浦路","default":false},{"itemCode":"950","itemName":"上海书城","default":false},{"itemCode":"947","itemName":"上海博物馆","default":false},{"itemCode":"959","itemName":"上海商城","default":false},{"itemCode":"921","itemName":"上海大厦","default":false},{"itemCode":"973","itemName":"上海广场（原无限度）","default":false},{"itemCode":"963","itemName":"上海戏剧学院","default":false},{"itemCode":"967","itemName":"上海电视台","default":false},{"itemCode":"949","itemName":"上海音乐厅","default":false},{"itemCode":"1067","itemName":"上海音乐学院","default":false}]},{"groupCode":"火车站","groupName":"火车站","multiFlag":false,"items":[{"itemCode":"","itemName":"不限","default":true},{"itemCode":"13257","itemName":"上海南站","default":false},{"itemCode":"6037","itemName":"上海火车南站","default":false},{"itemCode":"6039","itemName":"上海站","default":false},{"itemCode":"6038","itemName":"上海虹桥站","default":false},{"itemCode":"6036","itemName":"上海西站","default":false},{"itemCode":"5844","itemName":"北京北站","default":false},{"itemCode":"5846","itemName":"北京站","default":false},{"itemCode":"5858","itemName":"朝阳站","default":false},{"itemCode":"13312","itemName":"松江站","default":false}]},{"groupCode":"地铁","groupName":"地铁（2级菜单）","multiFlag":false,"items":[{"itemCode":"10号线","itemName":"10号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7653","itemName":"上海图书馆","default":false},{"itemCode":"7702","itemName":"南京东路","default":false},{"itemCode":"7701","itemName":"四川北路","default":false},{"itemCode":"7697","itemName":"天潼路","default":false},{"itemCode":"7686","itemName":"新天地","default":false},{"itemCode":"7810","itemName":"海伦路","default":false},{"itemCode":"7698","itemName":"老西门","default":false},{"itemCode":"7709","itemName":"豫园","default":false},{"itemCode":"7669","itemName":"陕西南路","default":false}]},{"itemCode":"11号线","itemName":"11号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7835","itemName":"三林东","default":false},{"itemCode":"7836","itemName":"上海游泳馆","default":false},{"itemCode":"7643","itemName":"徐家汇","default":false},{"itemCode":"7634","itemName":"江苏路","default":false}]},{"itemCode":"1号线","itemName":"1号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7839","itemName":"上海火车站","default":false},{"itemCode":"7682","itemName":"人民广场","default":false},{"itemCode":"7663","itemName":"常熟路","default":false},{"itemCode":"7643","itemName":"徐家汇","default":false},{"itemCode":"7676","itemName":"新闸路","default":false},{"itemCode":"7671","itemName":"汉中路","default":false},{"itemCode":"7657","itemName":"衡山路","default":false},{"itemCode":"7669","itemName":"陕西南路","default":false},{"itemCode":"7681","itemName":"黄陂南路","default":false}]},{"itemCode":"2号线","itemName":"2号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7809","itemName":"东昌路","default":false},{"itemCode":"7682","itemName":"人民广场","default":false},{"itemCode":"7702","itemName":"南京东路","default":false},{"itemCode":"7672","itemName":"南京西路","default":false},{"itemCode":"7634","itemName":"江苏路","default":false},{"itemCode":"7833","itemName":"科技馆","default":false},{"itemCode":"7730","itemName":"陆家嘴","default":false},{"itemCode":"7655","itemName":"静安寺","default":false}]},{"itemCode":"3号线","itemName":"3号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7839","itemName":"上海火车站","default":false},{"itemCode":"7816","itemName":"东宝兴路","default":false},{"itemCode":"7688","itemName":"宝山路","default":false}]},{"itemCode":"4号线","itemName":"4号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7839","itemName":"上海火车站","default":false},{"itemCode":"7666","itemName":"东安路","default":false},{"itemCode":"7811","itemName":"临平路","default":false},{"itemCode":"7725","itemName":"南浦大桥","default":false},{"itemCode":"7675","itemName":"大木桥路","default":false},{"itemCode":"7744","itemName":"大连路","default":false},{"itemCode":"7688","itemName":"宝山路","default":false},{"itemCode":"7750","itemName":"杨树浦路","default":false},{"itemCode":"7753","itemName":"浦东大道","default":false},{"itemCode":"7810","itemName":"海伦路","default":false},{"itemCode":"7711","itemName":"西藏南路","default":false},{"itemCode":"7685","itemName":"鲁班路","default":false}]},{"itemCode":"7号线","itemName":"7号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7666","itemName":"东安路","default":false},{"itemCode":"7663","itemName":"常熟路","default":false},{"itemCode":"7651","itemName":"昌平路","default":false},{"itemCode":"7660","itemName":"肇嘉浜路","default":false},{"itemCode":"7825","itemName":"长寿路","default":false},{"itemCode":"7655","itemName":"静安寺","default":false}]},{"itemCode":"8号线","itemName":"8号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7677","itemName":"中兴路","default":false},{"itemCode":"7834","itemName":"中华艺术宫","default":false},{"itemCode":"7682","itemName":"人民广场","default":false},{"itemCode":"7691","itemName":"大世界","default":false},{"itemCode":"7680","itemName":"曲阜路","default":false},{"itemCode":"7698","itemName":"老西门","default":false},{"itemCode":"7819","itemName":"西藏北路","default":false},{"itemCode":"7711","itemName":"西藏南路","default":false},{"itemCode":"7707","itemName":"陆家浜路","default":false}]},{"itemCode":"9号线","itemName":"9号线","secItems":[{"itemCode":"","itemName":"不限","default":false},{"itemCode":"7820","itemName":"商城路","default":false},{"itemCode":"7673","itemName":"嘉善路","default":false},{"itemCode":"7722","itemName":"小南门","default":false},{"itemCode":"7643","itemName":"徐家汇","default":false},{"itemCode":"7678","itemName":"打浦桥","default":false},{"itemCode":"7660","itemName":"肇嘉浜路","default":false},{"itemCode":"7707","itemName":"陆家浜路","default":false},{"itemCode":"7690","itemName":"马当路","default":false}]}]},{"groupCode":"长途汽车站","groupName":"长途汽车站","multiFlag":false,"items":[{"itemCode":"","itemName":"不限","default":true},{"itemCode":"6625","itemName":"上海五角场长途汽车站","default":false},{"itemCode":"6631","itemName":"上海南浦大桥旅游站","default":false},{"itemCode":"6623","itemName":"上海嘉定汽车站","default":false},{"itemCode":"6633","itemName":"上海太平洋长途客运站","default":false}]}]
+        
+        // 复杂数据
+        var data5 = [{"groupCode":"景点区域","groupName":"景点区域（2级菜单）","multiFlag":false,"items":[{"itemCode":"不限","itemName":"不限","secItems":[]},{"itemCode":"河北","itemName":"河北","secItems":[{"itemCode":"province=3","itemName":"不限"},{"itemCode":"city=4","itemName":"石家庄"},{"itemCode":"city=9","itemName":"保定"},{"itemCode":"city=7","itemName":"邯郸"},{"itemCode":"city=5","itemName":"唐山"},{"itemCode":"city=6","itemName":"秦皇岛"},{"itemCode":"city=10","itemName":"张家口"},{"itemCode":"city=8","itemName":"邢台"},{"itemCode":"city=11","itemName":"承德"},{"itemCode":"city=13","itemName":"廊坊"}]},{"itemCode":"北京","itemName":"北京","secItems":[{"itemCode":"province=1","itemName":"不限"},{"itemCode":"city=1","itemName":"北京"}]},{"itemCode":"广东","itemName":"广东","secItems":[{"itemCode":"province=228","itemName":"不限"},{"itemCode":"city=229","itemName":"广州"},{"itemCode":"city=231","itemName":"深圳"},{"itemCode":"city=234","itemName":"佛山"},{"itemCode":"city=245","itemName":"清远"},{"itemCode":"city=230","itemName":"韶关"}]},{"itemCode":"云南","itemName":"云南","secItems":[{"itemCode":"province=312","itemName":"不限"},{"itemCode":"city=315","itemName":"昆明"},{"itemCode":"city=320","itemName":"丽江"},{"itemCode":"city=326","itemName":"西双版纳"},{"itemCode":"city=327","itemName":"大理"},{"itemCode":"city=3889","itemName":"迪庆"}]},{"itemCode":"山东","itemName":"山东","secItems":[{"itemCode":"province=159","itemName":"不限"},{"itemCode":"city=161","itemName":"青岛"},{"itemCode":"city=168","itemName":"济宁"},{"itemCode":"city=174","itemName":"临沂"},{"itemCode":"city=160","itemName":"济南"},{"itemCode":"city=167","itemName":"潍坊"}]},{"itemCode":"浙江","itemName":"浙江","secItems":[{"itemCode":"province=96","itemName":"不限"},{"itemCode":"city=100","itemName":"杭州"},{"itemCode":"city=111","itemName":"绍兴"}]},{"itemCode":"四川","itemName":"四川","secItems":[{"itemCode":"province=278","itemName":"不限"},{"itemCode":"city=297","itemName":"阿坝"},{"itemCode":"city=279","itemName":"成都"}]},{"itemCode":"江苏","itemName":"江苏","secItems":[{"itemCode":"province=80","itemName":"不限"},{"itemCode":"city=87","itemName":"苏州"},{"itemCode":"city=82","itemName":"南京"}]},{"itemCode":"辽宁","itemName":"辽宁","secItems":[{"itemCode":"province=41","itemName":"不限"},{"itemCode":"city=42","itemName":"沈阳"}]},{"itemCode":"湖北","itemName":"湖北","secItems":[{"itemCode":"province=198","itemName":"不限"},{"itemCode":"city=199","itemName":"武汉"},{"itemCode":"city=3668","itemName":"神农架"}]},{"itemCode":"江西","itemName":"江西","secItems":[{"itemCode":"province=145","itemName":"不限"},{"itemCode":"city=3891","itemName":"九江"},{"itemCode":"city=156","itemName":"上饶"}]},{"itemCode":"陕西","itemName":"陕西","secItems":[{"itemCode":"province=339","itemName":"不限"},{"itemCode":"city=340","itemName":"西安"}]},{"itemCode":"福建","itemName":"福建","secItems":[{"itemCode":"province=135","itemName":"不限"},{"itemCode":"city=140","itemName":"泉州"},{"itemCode":"city=137","itemName":"厦门"}]},{"itemCode":"湖南","itemName":"湖南","secItems":[{"itemCode":"province=212","itemName":"不限"},{"itemCode":"city=213","itemName":"长沙"},{"itemCode":"city=227","itemName":"湘西"}]}]},{"groupCode":"旅游类型","groupName":"旅游类型","multiFlag":false,"items":[{"default":true,"itemCode":"","itemName":"不限"},{"default":false,"itemCode":"category=171818132","itemName":"景点+酒店"},{"default":false,"itemCode":"category=18182","itemName":"机票+酒店"}]},{"groupCode":"价格范围","groupName":"价格范围","multiFlag":false,"items":[{"default":true,"itemCode":"","itemName":"不限"},{"default":false,"itemCode":"price=1","itemName":"100元以下"},{"default":false,"itemCode":"price=2","itemName":"101-500元"},{"default":false,"itemCode":"price=3","itemName":"501-1000元"},{"default":false,"itemCode":"price=4","itemName":"1001-2000元"},{"default":false,"itemCode":"price=5","itemName":"2001-4000元"},{"default":false,"itemCode":"price=6","itemName":"4001-6000元"},{"default":false,"itemCode":"price=7","itemName":"6001-10000元"},{"default":false,"itemCode":"price=8","itemName":"10001元以上"}]},{"groupCode":"出发地","groupName":"出发地","multiFlag":false,"items":[{"default":true,"itemCode":"","itemName":"不限"},{"default":false,"itemCode":"districtId=56","itemName":"南京"},{"default":false,"itemCode":"districtId=9","itemName":"上海"},{"default":false,"itemCode":"districtId=69","itemName":"杭州"},{"default":false,"itemCode":"districtId=57","itemName":"无锡"}]},{"groupCode":"酒店星级","groupName":"酒店星级","multiFlag":false,"items":[{"default":true,"itemCode":"","itemName":"不限"},{"default":false,"itemCode":"hotelStar=100101","itemName":"五星级/豪华型"},{"default":false,"itemCode":"hotelStar=102103","itemName":"四星级/品质型"},{"default":false,"itemCode":"hotelStar=109","itemName":"其他/其他"},{"default":false,"itemCode":"hotelStar=104105","itemName":"三星级/舒适型"},{"default":false,"itemCode":"hotelStar=106107","itemName":"二星级/简约型"}]},{"groupCode":"产品等级","groupName":"产品等级（多选）","multiFlag":true,"items":[{"default":true,"itemCode":"","itemName":"不限"},{"default":false,"itemCode":"productGrade=0","itemName":"3钻"},{"default":false,"itemCode":"productGrade=1","itemName":"4钻"},{"default":false,"itemCode":"productGrade=2","itemName":"5钻"}]},{"groupCode":"自主品牌","groupName":"自主品牌（多选）","multiFlag":true,"items":[{"default":true,"itemCode":"","itemName":"不限"},{"default":false,"itemCode":"brandLvTuTagId=2365","itemName":"驴悦亲子"},{"default":false,"itemCode":"brandLvTuTagId=3504","itemName":"逍遥驴行"}]}];
+
+        var filterObj;
+
+        var params = [{
+            tabName: '单选',
+            selectedData: '',
+            replace: true,
+            data: data1,
+            callback: cb
+        }, {
+            tabName: '多选',
+            selectedData: [],
+            data: data2,
+            multi: true,
+            callback: cb
+        }, {
+            tabName: '无面板',
+            selectedData: {},
+            callback: cb
+        }, {
+            tabName: '互斥',
+            selectedData: {},
+            data: data4,
+            mutex: true,
+            callback: cb
+        }, {
+            tabName: '复杂',
+            selectedData: {
+                '价格范围': ['price=2'],
+                '景点区域': ['city=9']
+            },
+            data: data5,
+            callback: cb
+        }];
+
+        filterObj = new FilterBar(params);
+
+        function cb(data) {
+            console.log(data);
+        }
+    </script>
+</body>
+
+</html>
